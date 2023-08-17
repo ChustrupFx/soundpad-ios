@@ -55,6 +55,7 @@
 		98A8E5A42A8EA4260026DD5B /* soundpad-ios */ = {
 			isa = PBXGroup;
 			children = (
+				98A8E5B82A8EAD230026DD5B /* sounds */,
 				98A8E5A52A8EA4260026DD5B /* soundpad_iosApp.swift */,
 				98A8E5A72A8EA4260026DD5B /* ContentView.swift */,
 				98A8E5A92A8EA4260026DD5B /* Assets.xcassets */,
@@ -71,6 +72,13 @@
 				98A8E5AC2A8EA4260026DD5B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		98A8E5B82A8EAD230026DD5B /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

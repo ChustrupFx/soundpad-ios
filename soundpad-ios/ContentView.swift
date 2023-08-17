@@ -7,79 +7,89 @@
 
 import SwiftUI
 import CoreData
+import AVFoundation
+import AVFAudio
+
+
+struct Audio: Identifiable {
+    
+    var id = UUID()
+    var url: URL
+
+}
+
+var player: AVAudioPlayer?
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
-
+    
+    @State var fileImporterActive = false
+    
+    @State var audios: [Audio] = [
+    
+    ]
+    
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+        VStack {
+            
+            Spacer()
+            
+            ForEach(audios) { audio in
+                Button {
+                    do {
+                        
+                        if (audio.url.startAccessingSecurityScopedResource()) {
+                            
+                            
+                            player = try AVAudioPlayer(contentsOf: audio.url)
+                            
+                            
+                            if let player = player {
+                                player.prepareToPlay()
+                                player.play()
+                                
+                                
+                                print("Playing")
+                            }
+                            
+                            audio.url.stopAccessingSecurityScopedResource()
+                        }
+                        
+                    } catch {
+                        print(error)
                     }
+                } label: {
+                    Text(audio.url.absoluteString)
                 }
-                .onDelete(perform: deleteItems)
+
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-            Text("Select an item")
+            
+            Spacer()
+            
         }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        .toolbar {
+            Button {
+                fileImporterActive = true
+            } label: {
+                Image(systemName: "plus.app.fill")
             }
+
         }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
+        .fileImporter(isPresented: $fileImporterActive, allowedContentTypes: [.mp3]) { result in
             do {
-                try viewContext.save()
+                
+                let url = try result.get()
+                
+                let audio = Audio(url: url)
+                
+                audios.append(audio)
+                
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                
             }
+            
         }
     }
 }
-
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
