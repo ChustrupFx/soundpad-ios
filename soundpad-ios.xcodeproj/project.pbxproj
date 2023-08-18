@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9850718F2A90107C001C701B /* MusicButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9850718E2A90107C001C701B /* MusicButtonComponent.swift */; };
 		98A8E5A62A8EA4260026DD5B /* soundpad_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A8E5A52A8EA4260026DD5B /* soundpad_iosApp.swift */; };
 		98A8E5A82A8EA4260026DD5B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A8E5A72A8EA4260026DD5B /* ContentView.swift */; };
 		98A8E5AA2A8EA4260026DD5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98A8E5A92A8EA4260026DD5B /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9850718E2A90107C001C701B /* MusicButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicButtonComponent.swift; sourceTree = "<group>"; };
 		98A8E5A22A8EA4260026DD5B /* soundpad-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "soundpad-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		98A8E5A52A8EA4260026DD5B /* soundpad_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = soundpad_iosApp.swift; sourceTree = "<group>"; };
 		98A8E5A72A8EA4260026DD5B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -36,6 +38,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9850718D2A90106D001C701B /* components */ = {
+			isa = PBXGroup;
+			children = (
+				9850718E2A90107C001C701B /* MusicButtonComponent.swift */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
 		98A8E5992A8EA4260026DD5B = {
 			isa = PBXGroup;
 			children = (
@@ -55,6 +65,7 @@
 		98A8E5A42A8EA4260026DD5B /* soundpad-ios */ = {
 			isa = PBXGroup;
 			children = (
+				9850718D2A90106D001C701B /* components */,
 				98A8E5B82A8EAD230026DD5B /* sounds */,
 				98A8E5A52A8EA4260026DD5B /* soundpad_iosApp.swift */,
 				98A8E5A72A8EA4260026DD5B /* ContentView.swift */,
@@ -151,6 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9850718F2A90107C001C701B /* MusicButtonComponent.swift in Sources */,
 				98A8E5AF2A8EA4260026DD5B /* Persistence.swift in Sources */,
 				98A8E5B22A8EA4260026DD5B /* soundpad_ios.xcdatamodeld in Sources */,
 				98A8E5A82A8EA4260026DD5B /* ContentView.swift in Sources */,
