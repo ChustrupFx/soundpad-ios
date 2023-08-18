@@ -29,7 +29,7 @@ struct ContentView: View {
     ]
     
     var body: some View {
-        VStack {
+        ScrollView {
             
             Spacer()
             
@@ -46,9 +46,6 @@ struct ContentView: View {
                             if let player = player {
                                 player.prepareToPlay()
                                 player.play()
-                                
-                                
-                                print("Playing")
                             }
                             
                             audio.url.stopAccessingSecurityScopedResource()
@@ -58,12 +55,40 @@ struct ContentView: View {
                         print(error)
                     }
                 } label: {
-                    Text(audio.url.absoluteString)
+                    HStack {
+                        Button {
+                            
+                        } label: {
+                            Image(systemName: "pause.fill")
+                                .resizable()
+                                .frame(width: 25, height: 25)
+                        }
+
+                        
+                        Text(audio.url.absoluteString).lineLimit(1)
+                        
+                        Menu {
+                            Button(role: .destructive) {
+                            
+                            } label: {
+                                Label("Delete", image: "trash")
+                            }
+                        } label: {
+                            Image(systemName: "ellipsis.circle.fill")
+                                .resizable()
+                                .frame(width: 25, height: 25)
+                        }
+                    }
+                    .padding()
+                    .cornerRadius(8, antialiased: true)
+                    .background(.blue)
+                    .foregroundColor(.white)
+                    .padding()
                 }
 
             }
             
-            Spacer()
+    
             
         }
         .toolbar {
