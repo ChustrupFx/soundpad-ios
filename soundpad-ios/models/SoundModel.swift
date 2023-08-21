@@ -1,9 +1,7 @@
 import CoreData
 
-class SoundModel {
-    init() {
-        
-        
-        
-    }
+class SoundModel: BaseModel<Sound> {
+    
+    
+    
 }
