@@ -12,8 +12,9 @@
 		98A8E5A82A8EA4260026DD5B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A8E5A72A8EA4260026DD5B /* ContentView.swift */; };
 		98A8E5AA2A8EA4260026DD5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98A8E5A92A8EA4260026DD5B /* Assets.xcassets */; };
 		98A8E5AD2A8EA4260026DD5B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98A8E5AC2A8EA4260026DD5B /* Preview Assets.xcassets */; };
-		98A8E5AF2A8EA4260026DD5B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A8E5AE2A8EA4260026DD5B /* Persistence.swift */; };
 		98A8E5B22A8EA4260026DD5B /* soundpad_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 98A8E5B02A8EA4260026DD5B /* soundpad_ios.xcdatamodeld */; };
+		98ED40FD2A93DE9400155EBD /* SoundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ED40FC2A93DE9400155EBD /* SoundModel.swift */; };
+		98ED40FF2A93E07F00155EBD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ED40FE2A93E07F00155EBD /* Persistence.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,8 +24,9 @@
 		98A8E5A72A8EA4260026DD5B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		98A8E5A92A8EA4260026DD5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98A8E5AC2A8EA4260026DD5B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		98A8E5AE2A8EA4260026DD5B /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		98A8E5B12A8EA4260026DD5B /* soundpad_ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = soundpad_ios.xcdatamodel; sourceTree = "<group>"; };
+		98ED40FC2A93DE9400155EBD /* SoundModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundModel.swift; sourceTree = "<group>"; };
+		98ED40FE2A93E07F00155EBD /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Persistence.swift; path = ../../CoreDataStudy/CoreDataStudy/Persistence.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,12 +67,13 @@
 		98A8E5A42A8EA4260026DD5B /* soundpad-ios */ = {
 			isa = PBXGroup;
 			children = (
+				98ED40FE2A93E07F00155EBD /* Persistence.swift */,
+				98ED40FB2A93DE1300155EBD /* models */,
 				9850718D2A90106D001C701B /* components */,
 				98A8E5B82A8EAD230026DD5B /* sounds */,
 				98A8E5A52A8EA4260026DD5B /* soundpad_iosApp.swift */,
 				98A8E5A72A8EA4260026DD5B /* ContentView.swift */,
 				98A8E5A92A8EA4260026DD5B /* Assets.xcassets */,
-				98A8E5AE2A8EA4260026DD5B /* Persistence.swift */,
 				98A8E5B02A8EA4260026DD5B /* soundpad_ios.xcdatamodeld */,
 				98A8E5AB2A8EA4260026DD5B /* Preview Content */,
 			);
@@ -90,6 +93,14 @@
 			children = (
 			);
 			path = sounds;
+			sourceTree = "<group>";
+		};
+		98ED40FB2A93DE1300155EBD /* models */ = {
+			isa = PBXGroup;
+			children = (
+				98ED40FC2A93DE9400155EBD /* SoundModel.swift */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,8 +174,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9850718F2A90107C001C701B /* MusicButtonComponent.swift in Sources */,
-				98A8E5AF2A8EA4260026DD5B /* Persistence.swift in Sources */,
 				98A8E5B22A8EA4260026DD5B /* soundpad_ios.xcdatamodeld in Sources */,
+				98ED40FD2A93DE9400155EBD /* SoundModel.swift in Sources */,
+				98ED40FF2A93E07F00155EBD /* Persistence.swift in Sources */,
 				98A8E5A82A8EA4260026DD5B /* ContentView.swift in Sources */,
 				98A8E5A62A8EA4260026DD5B /* soundpad_iosApp.swift in Sources */,
 			);

@@ -28,19 +28,22 @@ struct ContentView: View {
     
     ]
     
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.name, order: .reverse)])
+    var sounds: FetchedResults<Sound>
+    
     var body: some View {
         ScrollView {
             
             Spacer()
             
-            ForEach(audios) { audio in
+            ForEach(sounds) { audio in
                 Button {
                     do {
-                        
-                        if (audio.url.startAccessingSecurityScopedResource()) {
+                        let url = URL(string: audio.url!)!
+                        if (url.startAccessingSecurityScopedResource()) {
                             
                             
-                            player = try AVAudioPlayer(contentsOf: audio.url)
+                            player = try AVAudioPlayer(contentsOf: url)
                             
                             
                             if let player = player {
@@ -48,14 +51,14 @@ struct ContentView: View {
                                 player.play()
                             }
                             
-                            audio.url.stopAccessingSecurityScopedResource()
+                            URL(string: audio.url!)!.stopAccessingSecurityScopedResource()
                         }
                         
                     } catch {
                         print(error)
                     }
                 } label: {
-                    MusicButtonComponent(name: audio.url.absoluteString)
+                    MusicButtonComponent(name: audio.name!)
                 }
 
             }
