@@ -13,6 +13,7 @@
 		98A8E5AA2A8EA4260026DD5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98A8E5A92A8EA4260026DD5B /* Assets.xcassets */; };
 		98A8E5AD2A8EA4260026DD5B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98A8E5AC2A8EA4260026DD5B /* Preview Assets.xcassets */; };
 		98A8E5B22A8EA4260026DD5B /* soundpad_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 98A8E5B02A8EA4260026DD5B /* soundpad_ios.xcdatamodeld */; };
+		98B34D7C2A93E8C200E2DDC0 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B34D7B2A93E8C200E2DDC0 /* BaseModel.swift */; };
 		98ED40FD2A93DE9400155EBD /* SoundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ED40FC2A93DE9400155EBD /* SoundModel.swift */; };
 		98ED40FF2A93E07F00155EBD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ED40FE2A93E07F00155EBD /* Persistence.swift */; };
 /* End PBXBuildFile section */
@@ -25,6 +26,7 @@
 		98A8E5A92A8EA4260026DD5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98A8E5AC2A8EA4260026DD5B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		98A8E5B12A8EA4260026DD5B /* soundpad_ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = soundpad_ios.xcdatamodel; sourceTree = "<group>"; };
+		98B34D7B2A93E8C200E2DDC0 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		98ED40FC2A93DE9400155EBD /* SoundModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundModel.swift; sourceTree = "<group>"; };
 		98ED40FE2A93E07F00155EBD /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Persistence.swift; path = ../../CoreDataStudy/CoreDataStudy/Persistence.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				98ED40FC2A93DE9400155EBD /* SoundModel.swift */,
+				98B34D7B2A93E8C200E2DDC0 /* BaseModel.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 			files = (
 				9850718F2A90107C001C701B /* MusicButtonComponent.swift in Sources */,
 				98A8E5B22A8EA4260026DD5B /* soundpad_ios.xcdatamodeld in Sources */,
+				98B34D7C2A93E8C200E2DDC0 /* BaseModel.swift in Sources */,
 				98ED40FD2A93DE9400155EBD /* SoundModel.swift in Sources */,
 				98ED40FF2A93E07F00155EBD /* Persistence.swift in Sources */,
 				98A8E5A82A8EA4260026DD5B /* ContentView.swift in Sources */,
