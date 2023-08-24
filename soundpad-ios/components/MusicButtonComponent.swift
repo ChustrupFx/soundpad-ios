@@ -29,6 +29,15 @@ struct MusicButtonComponent: View {
             Menu {
                 Button(role: .destructive) {
                     
+                    sound.delete()
+                    
+                    do {
+                        try sound.save()
+                    } catch {
+                        print("Delete Error:")
+                        print(error)
+                    }
+                    
                 } label: {
                     Label("Delete", systemImage: "trash")
                 }
