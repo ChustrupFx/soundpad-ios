@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MusicButtonComponent: View {
     
-    var name: String
+    var sound: SoundModel
     
     var body: some View {
         HStack {
@@ -22,7 +22,7 @@ struct MusicButtonComponent: View {
             }
             
             
-            Text(name).lineLimit(1)
+            Text(sound.object.name!).lineLimit(1)
             
             Spacer()
             
@@ -30,7 +30,7 @@ struct MusicButtonComponent: View {
                 Button(role: .destructive) {
                     
                 } label: {
-                    Label("Delete", image: "trash")
+                    Label("Delete", systemImage: "trash")
                 }
             } label: {
                 Image(systemName: "ellipsis.circle.fill")
@@ -46,8 +46,3 @@ struct MusicButtonComponent: View {
     }
 }
 
-struct MusicButtonComponent_Previews: PreviewProvider {
-    static var previews: some View {
-        MusicButtonComponent(name: "ASD")
-    }
-}

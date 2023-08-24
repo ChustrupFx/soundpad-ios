@@ -58,7 +58,7 @@ struct ContentView: View {
                         print(error)
                     }
                 } label: {
-                    MusicButtonComponent(name: soundModel.object.name!)
+                    MusicButtonComponent(sound: .init(object: audio, viewContext: viewContext))
                 }
             }
         }
@@ -73,8 +73,7 @@ struct ContentView: View {
             do {
                 
                 let url = try result.get()
-                
-                
+
                 print(url.startAccessingSecurityScopedResource())
                 if (url.startAccessingSecurityScopedResource()) {
                     
