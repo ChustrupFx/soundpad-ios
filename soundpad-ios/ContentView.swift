@@ -12,15 +12,15 @@ import AVFAudio
 
 
 struct Audio: Identifiable {
-    
     var id = UUID()
     var url: URL
-
 }
 
 var player: AVAudioPlayer?
 
 struct ContentView: View {
+    
+    @Environment(\.managedObjectContext) var viewContext
     
     @State var fileImporterActive = false
     
@@ -37,34 +37,30 @@ struct ContentView: View {
             Spacer()
             
             ForEach(sounds) { audio in
+                var soundModel = SoundModel(object: audio, viewContext: viewContext)
                 Button {
+                    print("Touched")
                     do {
-                        let url = URL(string: audio.url!)!
-                        if (url.startAccessingSecurityScopedResource()) {
-                            
-                            
-                            player = try AVAudioPlayer(contentsOf: url)
-                            
-                            
-                            if let player = player {
-                                player.prepareToPlay()
-                                player.play()
-                            }
-                            
-                            URL(string: audio.url!)!.stopAccessingSecurityScopedResource()
+                        
+                        print(URL(string: audio.url!)!.startAccessingSecurityScopedResource())
+                        
+                        player = try AVAudioPlayer(contentsOf: soundModel.url())
+                        
+                        
+                        if let player = player {
+                            print("Playing")
+                            player.prepareToPlay()
+                            player.play()
                         }
                         
+                        soundModel.url().stopAccessingSecurityScopedResource()
                     } catch {
                         print(error)
                     }
                 } label: {
-                    MusicButtonComponent(name: audio.name!)
+                    MusicButtonComponent(name: soundModel.object.name!)
                 }
-
             }
-            
-    
-            
         }
         .toolbar {
             Button {
@@ -72,19 +68,42 @@ struct ContentView: View {
             } label: {
                 Image(systemName: "plus.app.fill")
             }
-
         }
         .fileImporter(isPresented: $fileImporterActive, allowedContentTypes: [.mp3]) { result in
             do {
                 
                 let url = try result.get()
                 
-                let audio = Audio(url: url)
                 
-                audios.append(audio)
+                print(url.startAccessingSecurityScopedResource())
+                if (url.startAccessingSecurityScopedResource()) {
+                    
+                    let documentDirs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+                    let dir = documentDirs[0]
+                    let fileDir = dir.appendingPathComponent(url.lastPathComponent)
+                    
+                    try FileManager.default.copyItem(at: url, to: fileDir)
+                    
+                    let sound = SoundModel(viewContext: viewContext)
+                    
+                    sound.object.name = url.absoluteString
+                    
+                    sound.object.url = fileDir.absoluteString
+                    
+                    do {
+                        try sound.save()
+                    } catch {
+                        print("asd")
+                    }
+                }
+                
+                url.stopAccessingSecurityScopedResource()
+                
+               
                 
             } catch {
-                
+                print(error)
+                print(error.localizedDescription)
             }
             
         }

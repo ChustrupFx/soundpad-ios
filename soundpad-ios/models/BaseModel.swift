@@ -1,7 +1,7 @@
 import CoreData
+import SwiftUI
 
 class BaseModel<EntityType: NSManagedObject> {
-    
     var object: EntityType
     var viewContext: NSManagedObjectContext
     
@@ -10,7 +10,12 @@ class BaseModel<EntityType: NSManagedObject> {
         self.object = EntityType(context: viewContext)
     }
     
-    func delete() throws {
+    init(object: EntityType, viewContext: NSManagedObjectContext) {
+        self.object = object
+        self.viewContext = viewContext
+    }
+    
+    func delete() {
         viewContext.delete(self.object)
     }
     
@@ -19,5 +24,5 @@ class BaseModel<EntityType: NSManagedObject> {
             try viewContext.save()
         }
     }
-    
 }
+
