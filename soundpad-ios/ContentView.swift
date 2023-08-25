@@ -62,16 +62,6 @@ struct ContentView: View {
                 }
             }
         }
-        .onAppear {
-            let documentDirs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-            let dir = documentDirs[0]
-            let fileDir = dir.appendingPathComponent("calma-triste.mp3")
-            
-            print(fileDir.absoluteString)
-            
-            
-            try? FileManager.default.removeItem(at: fileDir)
-        }
         .toolbar {
             Button {
                 fileImporterActive = true
