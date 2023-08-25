@@ -85,7 +85,7 @@ struct ContentView: View {
                     
                     let sound = SoundModel(viewContext: viewContext)
                     
-                    sound.object.name = url.absoluteString
+                    sound.object.name = url.lastPathComponent
                     
                     sound.object.url = fileDir.absoluteString
                     
